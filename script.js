@@ -7,7 +7,7 @@ var player = {
     name: "",
     score: 0,
     pick: "",
-}
+};
 var round = 0;
 
 function newGame() {
@@ -21,14 +21,14 @@ function newGame() {
   var buttons = document.getElementsByClassName("pick-button");
   for(var i = 0; i < buttons.length; i++) {
     buttons[i].style.visibility = 'visible';
-  };
+  }
 }
 
 function playerPick(pick) {
   player.pick = pick; //save player's pick
   computerPick(); //choose computer's pick
   checkResult(); //check result
-};
+}
 
 function computerPick() {
   //random number between 0 and 3
@@ -48,24 +48,23 @@ function computerPick() {
   //Check if there is a tie
     var gameResult;
     if (player.pick === computer.pick) {
-      gameResult = "tie!"
+      gameResult = "tie!";
     } 
     else if (player.pick === "rock") { //if player chooses rock
-    if (computer.pick === "scissors") { player.score++; gameResult = "Player wins!" } 
-    else if (computer.pick === "paper") { computer.score++; gameResult = "Computer wins!" }
+    if (computer.pick === "scissors") { player.score++; gameResult = "Player wins!"; }
+    else if (computer.pick === "paper") { computer.score++; gameResult = "Computer wins!"; }
 
   } 
     else if (player.pick === "paper") { //if player chooses paper
-    if  (computer.pick === "rock") { player.score++; gameResult = "Player wins!" }
-    else if (computer.pick === "scissors") { computer.score++; gameResult = "Computer wins!" }
-
+    if  (computer.pick === "rock") { player.score++; gameResult = "Player wins!"; }
+    else if (computer.pick === "scissors") { computer.score++; gameResult = "Computer wins!"; }
   } 
     else if (player.pick === "scissors") { //if player chooses scissors
-    if  (computer.pick === "paper") { player.score++; gameResult = "Player wins!" }
-    else if (computer.pick === "rock") { computer.score++; gameResult = "Computer wins!" }
+    if  (computer.pick === "paper") { player.score++; gameResult = "Player wins!"; }
+    else if (computer.pick === "rock") { computer.score++; gameResult = "Computer wins!"; }
   }
-    document.getElementById("computerPick").innerHTML = computer.pick
-    document.getElementById("playerPick").innerHTML = player.pick
+    document.getElementById("computerPick").innerHTML = computer.pick;
+    document.getElementById("playerPick").innerHTML = player.pick;
     document.getElementById("gameResult").innerHTML = gameResult;
     document.getElementById("playerScore").innerHTML = player.score;  
     document.getElementById("computerScore").innerHTML = computer.score;
